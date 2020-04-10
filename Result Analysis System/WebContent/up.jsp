@@ -145,7 +145,7 @@
 		int deleted_row=0;
 		boolean delete_it=false;
 		String chk1="";
-		String selected_year=request.getParameter("exe");
+		String selected_year=session.getAttribute("exe").toString();
 		String temppath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\tempupload",oripath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\uploads";
 		String type = "";
 		try {
@@ -238,7 +238,7 @@
 									rowcu += sp.executeUpdate();
 								} catch (Exception ee) {
 									ee.printStackTrace();
-									out.println(ee + "this is catch 1<br>");
+									
 									wb.close();
 									fin.close();
 									nf.delete();
@@ -293,7 +293,7 @@
 
 		catch (Exception e) {
 			msg = e.toString();
-			out.print("This is catch 2<br>" + e);
+			
 			e.printStackTrace();
 		}
 		if (filename == null || filename == "null") {
