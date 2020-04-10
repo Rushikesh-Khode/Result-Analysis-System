@@ -128,15 +128,16 @@ try{
 	
 	 PreparedStatement ps = con.prepareStatement("select Exam_Name from stud_data where Exam_Name='"+exyear+"'");
 	ResultSet rs = ps.executeQuery();
+	session.setAttribute("exe", exyear);
 	if(rs.next())
 	{
 		out.println("Data is already Present");
 		out.println("<p style='font-size:16px; font-style:bold'>If You Want To Update The Data Select The File Else Go To Home Page</p>");
-		out.println(" <form action='upload_override_bak.jsp?exe='"+exyear+"'' method='post' enctype='multipart/form-data'><input type='file' name='file19' class='btn'><br><br><input type='submit' name='b1' value='Upload' class='btn'></input></form>");
+		out.println(" <form action='upload_override_bak.jsp' method='post' enctype='multipart/form-data'><input type='file' name='file19' class='btn'><br><br><input type='submit' name='b1' value='Upload' class='btn'></input></form>");
 	}
 	else
 	{   out.println("<p style='font-size:16px; font-style:bold'>Select The File You Want To Upload<br></p>");
-		out.println(" <form action='up.jsp?exe='"+exyear+"'' method='post' enctype='multipart/form-data'><input type='file' name='file19' class='btn'><br><br><input type='submit' name='b1' value='Upload' class='btn'></input></form>");
+		out.println(" <form action='up.jsp' method='post' enctype='multipart/form-data'><input type='file' name='file19' class='btn'><br><br><input type='submit' name='b1' value='Upload' class='btn'></input></form>");
 	}
 	
 
