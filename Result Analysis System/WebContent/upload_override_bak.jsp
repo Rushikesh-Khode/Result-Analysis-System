@@ -138,7 +138,7 @@
     <div class="formback" id="formdark">
 
 
-	<%	String selected_year=request.getParameter("exe");
+	<%	String selected_year=session.getAttribute("exe").toString();
 		String msg = "";
 		String name = "";
 		String temppath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\tempupload",oripath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\uploads";
