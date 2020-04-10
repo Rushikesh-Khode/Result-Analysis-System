@@ -1,0 +1,127 @@
+.box{
+  width: 400px;
+ margin-left: 330px;
+ margin-top: 40px;
+ height: 400px;
+  background: white;
+  border-radius: 10px;
+}
+.box h1{
+  text-align: center; 
+  height:45px;
+  background: #ff8000;
+  border-bottom: 1px solid orange;
+   border-top-right-radius:10px; 
+   border-top-left-radius: 10px;
+}
+.box form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+ 
+}
+ .txt_field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 18px;
+  border: none;
+  background: none;
+  outline: none;
+  color:#0086b3;
+} 
+.txt_field label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #ff8000;
+  transform: translateY(-75%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+.txt_field span::before{
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff8000;
+  transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+  top: -5px;
+  color: #ff8000;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+  width: 100%;
+}
+.pass{
+  margin: -5px 0 20px 5px;
+  color: #ff8000;
+  cursor: pointer;
+}
+.pass:hover{
+  text-decoration: underline;
+}
+.signup_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #ff8000;
+}
+.signup_link a{
+  color: #ff8000;
+  text-decoration: none;
+}
+.signup_link a:hover{
+  text-decoration: underline;
+}
+
+
+.btn1{
+  
+  background: none;
+  border: 4px solid;
+  color: #ff8000;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
+.btn1::before,.btn1::after{
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 4px;
+  background: #07407B;
+  transform: skewX(50deg);
+  transition: .4s linear;
+}
+
+.btn1::before{
+  top: -4px;
+  left: 10%;
+}
+
+.btn1::after{
+  bottom: -4px;
+  right: 10%;
+}
+
+.btn1:hover::before{
+  left: 80%;
+}
+
+.btn1:hover::after{
+  right: 80%;
+}
