@@ -71,7 +71,7 @@
 
 
 </head>
-<body id="body1">
+<body id="body1" >
 
 <div class="wrapper">
   <div class="top_navbar">
@@ -98,12 +98,20 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+     <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+           <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -112,7 +120,7 @@
 
     
 
-<p><b>Success rate without backlog in stipulated period of study</b>
+<p id="tb1"><b>Success rate without backlog in stipulated period of study</b>
 <br>
 <br>
 SI= (Number of students who have passed from the program without backlog)/ (Number of students admitted in the first year of that batch plus actually admitted in 2nd year via lateral entry) 
@@ -121,17 +129,20 @@ SI= (Number of students who have passed from the program without backlog)/ (Numb
 </p><br>
 <!-- <input type="submit" value="Generate values" onclick="table3()"> -->
 
-<select id="branch3" class="list">
+<select  class="list" id="branch3">
   <option value="CO">CO</option>
   <option value="ME">ME</option>
   <option value="CE">CE</option>
   <option value="EE">EE</option>
   <option value="ET">ET</option>
 </select>
-<button onclick="table3()" class="btn">Generate Values</button><p id="pw"></p>
+
+<button onclick="table3()" class="btn"  id="but1">Generate Values</button>
+<center><div class="loader" id="load" ><div class="loader1"><div class="loader2"></div></div></div></center>
+<!-- <p id="pw"></p> -->
 <br><br>
 <center>
-<table border="1" align="center">
+<table border="1" align="center"  id="ta33"  onmouseover="setCurrent(ta33)">
 		<tr>
 			<td><b><center>ITEM</td>
 
@@ -228,7 +239,7 @@ SI= (Number of students who have passed from the program without backlog)/ (Numb
 
 
 
-<p><b>Successrate with backlogin stipulated period of study</b>
+<p id="tb2"><b>Successrate with backlogin stipulated period of study</b>
 <br><br>
 
 SI= (Number of students who have passed from the program in the stipulated period of course duration)/ (Number of students admitted in the first year of that batch plus actually admitted in 2nd year via lateral entry) 
@@ -245,11 +256,13 @@ Success rate = 20 × Average SI
   <option value="EE">EE</option>
   <option value="ET">ET</option>
 </select> 
-<button onclick="table4()" class="btn">Generate Values</button><p id="pw1"></p>
+<button onclick="table4()" class="btn" id="but2">Generate Values</button><!-- <p id="pw1"></p> -->
+
+<center><div class="loader" id="load1" ><div class="loader1"><div class="loader2"></div></div></div></center>
 <br><br>
 
 <center>
-<table border="1" id="tab"  align="center">
+<table border="1"  align="center" id="ta44" onmouseover="setCurrent(ta44)">
 		<tr>
 			<td><b><center>ITEM</td>
 
@@ -358,7 +371,32 @@ Success rate = 20 × Average SI
 		<button class="btn" style="width:80px;" onclick="javascript:document.location.href='table_5_6_7.jsp'">NEXT</button></center>
 		
 		</div></div>
-		
+	<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+   <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </body>
 <script type="text/javascript">
 
@@ -378,16 +416,22 @@ function table3()
 	   
 	    xhr.onreadystatechange  = function()
 	    { if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
-	    	document.getElementById("pw").innerHTML="PLEASE WAIT";
-	    	 document.getElementById("body1").style.cursor = "wait";}
+	    /* 	document.getElementById("pw").innerHTML="PLEASE WAIT";
+	    	 document.getElementById("body1").style.cursor = "wait"; */
+	    	 document.getElementById("load").style.display="block"; 
+	    }
 	         if(xhr.readyState  == 4)
 	         {
 	              if(xhr.status  == 200) {
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
 	               va=xhr.responseText.split("'");
-	               document.getElementById("pw").innerHTML="";
-	               document.getElementById("body1").style.cursor = "default";
 	               
+	               
+	         /*       document.getElementById("pw").innerHTML="";
+	               document.getElementById("body1").style.cursor = "default"; */
+	               
+	               
+	               document.getElementById("load").style.display="none";
 	               
 	               var mm= document.getElementById("branch3").value;
 	               sessionStorage.setItem("table3","true'"+mm+"");
@@ -441,16 +485,20 @@ function table4()
     xhr.onreadystatechange  = function()
     { 
     	 if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
- 	    	document.getElementById("pw1").innerHTML="PLEASE WAIT";
- 	    	  document.getElementById("body1").style.cursor = "wait";
+ 	    /* 	document.getElementById("pw1").innerHTML="PLEASE WAIT";
+ 	    	  document.getElementById("body1").style.cursor = "wait"; */
+    		 document.getElementById("load1").style.display="block";
  	    	}
          if(xhr.readyState  == 4)
          {
               if(xhr.status  == 200) {
                /*   document.getElementById("tab").innerHTML=xhr.responseText; */
                va=xhr.responseText.split(",");
-               document.getElementById("body1").style.cursor = "default";
-               document.getElementById("pw1").innerHTML="";
+               
+               document.getElementById("load1").style.display="none";
+               
+            /*    document.getElementById("body1").style.cursor = "default";
+               document.getElementById("pw1").innerHTML=""; */
                
                var mm= document.getElementById("branch4").value;
                sessionStorage.setItem("table4","true'"+mm+"");
@@ -560,5 +608,32 @@ if(tab2!==null)
 	}
 
 
+
+
+
+
+/* document.onkeyup = function(e) {
+	  if (e.ctrlKey && e.which == 190) {
+		  document.getElementById("tb2").scrollIntoView();
+		  }
+	  else if(e.ctrlKey && e.which== 188)
+		  {
+		  document.getElementById("body1").scrollIntoView();
+			 
+		  }
+	  else if(e.altKey && e.which==78 )
+	  {
+
+	  window.location.href = "table_5_6_7.jsp";
+	  }
+	
+	    
+	  }; */
+
+
 </script>
+
+	<script src="shortcut.js" type="text/javascript"></script>
+
+
 </html>

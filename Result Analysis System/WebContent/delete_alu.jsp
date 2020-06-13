@@ -31,7 +31,12 @@ if(user.equals("")||user.equals(" ")||user.equals(null))
 			String alert="";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/datademo", "root", "root");
-		String dirpath = "D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\WebContent\\documents"; 
+		
+			 File f_of_workspace = new File("./");
+			String path_of_workspace=f_of_workspace.getAbsolutePath().substring(0,f_of_workspace.getAbsolutePath().length()-1);
+			
+			
+			String dirpath = path_of_workspace+"\\WebContent\\documents"; 
 	
 		/* PreparedStatement pss=con.prepareStatement("select doc_2 from alu_data where enroll=?");
 		pss.setString(1, enroll);
@@ -91,18 +96,26 @@ if(user.equals("")||user.equals(" ")||user.equals(null))
 					  {
 					 PreparedStatement ps = con.prepareStatement("delete from alu_data where enroll=?");
 					ps.setString(1, enroll);
-					ps.executeUpdate();
-					alert="Enrollment : "+enroll+" Is Deleted Sucessfully";
-					  }
+					int del=ps.executeUpdate();
+					if(del==1)
+					{
+					 response.sendRedirect("admin.jsp"); 
+					}
+					else
+					{
+						out.println("Deleting Information Is Not Sucessfull (Only Some Information Is Deleted Try Again) Error 106");
+					}
+					  } 
 					}
 
 			}
 			else
 			{
 				out.println("File Not Found");
+				
 			}
     /*    out.println(session.getAttribute("user")); */
-  response.sendRedirect("admin.jsp?val="+s+"");  
+  
 		} catch (Exception e) {
 			out.println(e);
 			out.println("this is exception");

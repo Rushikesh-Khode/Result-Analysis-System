@@ -70,7 +70,7 @@
 
 
 </head>
-<body id="body1">
+<body id="body1" >
 
 
 
@@ -100,12 +100,20 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+      <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+           <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -113,10 +121,11 @@
     <div class="formback" id="formdark">
 
 
-<p><b>  Academic Performance in FirstYear</b>
+<p id="tb1"><b>  Academic Performance in FirstYear</b>
 
 <br><br>
 Academic Performance Level = 2.5 * Average API  <br>
+<br>
 API = ((Mean of 1st Year Grade Point Average of all successful Students on a 10 point scale) or (Mean of the percentage of marks of all successful students in First Year/ 10)) x (successful students/number of students appeared in the examination). <br> Successful students are those who are permitted to proceed to the second year
 
 
@@ -128,11 +137,11 @@ API = ((Mean of 1st Year Grade Point Average of all successful Students on a 10 
   <option value="CE">CE</option>
   <option value="EE">EE</option>
   <option value="ET">ET</option>
-</select> <button class="btn" onclick="table5()">Generate Values</button><p id="pw"></p><br><br>
+</select> <button class="btn" onclick="table5()" id="but1">Generate Values</button><center><div class="loader" id="load" ><div class="loader1"><div class="loader2"></div></div></div></center><br><br>
 <center>
-  <table border="1" align="center">
+  <table border="1" align="center" id="ta55" onmouseover="setCurrent(ta55)">
 		<tr>
-			<td><b><center>Academic Performance</td>
+			<td><b><center>Academic Performance(I Year)</td>
 
 		<td><b><center>CAYm1</td>
 
@@ -226,7 +235,7 @@ API = ((Mean of 1st Year Grade Point Average of all successful Students on a 10 
 <br>
 <!-- this is table number 6 -->
 
-<p><b> Academic Performance in SecondYear</b>
+<p id="tb2"><b> Academic Performance in SecondYear</b>
 
 <br><br>
 Academic Performance Level = 2.0 * Average API  <br>
@@ -242,13 +251,13 @@ Successful students are those who are permitted to proceed to the final year
   <option value="CE">CE</option>
   <option value="EE">EE</option>
   <option value="ET">ET</option>
-</select> <button class="btn" onclick="table6()" >Generate Values</button><p id="pw1"></p><br><br>
+</select> <button class="btn" onclick="table6()" id="but2" >Generate Values</button> <center><div class="loader" id="load1" ><div class="loader1"><div class="loader2"></div></div></div></center><br><br>
 
 
 <center>
-<table border="1" align="center">
+<table border="1" align="center" id="ta66" onmouseover="setCurrent(ta66)">
 			<tr>
-				<td><b><center>Academic Performance</td>
+				<td><b><center>Academic Performance(II Year)</td>
 
 				<td><b><center>CAYm1</td>
 
@@ -307,7 +316,7 @@ Successful students are those who are permitted to proceed to the final year
 		<!-- This is table 7th -->
 		
 		
-		<p><b>AcademicPerformance in Final Year</b>
+		<p id="tb3"><b>AcademicPerformance in Final Year</b>
 		<br><br>
 		Academic Performance Level =1.5 * Average API (Academic Performance Index)  <br>
 API = (Mean of Final Year Grade Point Average of all successful Students on a 10 point scale) or (Mean of the percentage of marks of all successful students in Final Year/10) x (successful students/number of students appeared in the examination)  <br>
@@ -321,12 +330,12 @@ Successful students are those who passed in all the final year courses
   <option value="CE">CE</option>
   <option value="EE">EE</option>
   <option value="ET">ET</option>
-</select>   <button class="btn" onclick="table7()">Generate Values</button><p id="pw2"></p> <br><br>
+</select>   <button class="btn" onclick="table7()" id="but3">Generate Values</button><center><div class="loader" id="load2" ><div class="loader1"><div class="loader2"></div></div></div><br><br>
 
 		<center>
-		<table border="1" align="center">
+		<table border="1" align="center" id="ta77" onmouseover="setCurrent(ta77)">
 		<tr>
-			<td><b><center>Academic Performance</td>
+			<td><b><center>Academic Performance(III Year)</td>
 
 		<td><b><center>CAYm1</td>
 
@@ -406,6 +415,35 @@ Successful students are those who passed in all the final year courses
 		<center>
 		<button onclick="javascript:document.location.href='table_3_4.jsp'" class="btn">Back</button></center>
 		</div></div>
+		
+		
+		<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+   <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
+		
 </body>
 <script type="text/javascript">
 
@@ -425,17 +463,20 @@ function table5()
 	   
 	    xhr.onreadystatechange  = function()
 	    { if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
-	    	document.getElementById("pw").innerHTML="PLEASE WAIT";
-	    	 document.getElementById("body1").style.cursor = "wait";}
+	    /* 	document.getElementById("pw").innerHTML="PLEASE WAIT";
+	    	 document.getElementById("body1").style.cursor = "wait"; */
+	    	document.getElementById("load").style.display="block"; 
+	    }
 	         if(xhr.readyState  == 4)
 	         {
 	              if(xhr.status  == 200) {
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
 	               va=xhr.responseText.split("'");
 	              
-	               document.getElementById("pw").innerHTML="";
-	               document.getElementById("body1").style.cursor = "default";
+	           /*     document.getElementById("pw").innerHTML="";
+	               document.getElementById("body1").style.cursor = "default"; */
 	               
+	               document.getElementById("load").style.display="none"; 
 	               
 	               var mm= document.getElementById("branch5").value;
 	               sessionStorage.setItem("table5","true'"+mm+"");
@@ -491,8 +532,10 @@ function table6()
 	    xhr.onreadystatechange  = function()
 	    { 
 	    	if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
- 	    	document.getElementById("pw1").innerHTML="PLEASE WAIT";
-	    	  document.getElementById("body1").style.cursor = "wait";
+ 	  /*   	document.getElementById("pw1").innerHTML="PLEASE WAIT";
+	    	  document.getElementById("body1").style.cursor = "wait"; */
+	    	  
+	    		document.getElementById("load1").style.display="block"; 
 	    	}
 	         if(xhr.readyState  == 4)
 	         {
@@ -500,8 +543,10 @@ function table6()
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
 	               va=xhr.responseText.split("'");
 	              
-	               document.getElementById("body1").style.cursor = "default";
-	               document.getElementById("pw1").innerHTML="";
+	             /*   document.getElementById("body1").style.cursor = "default";
+	               document.getElementById("pw1").innerHTML=""; */
+	               
+	               document.getElementById("load1").style.display="none"; 
 	               
 	               var mm= document.getElementById("branch6").value;
 	               sessionStorage.setItem("table6","true'"+mm+"");
@@ -560,8 +605,10 @@ function table7()
 	   
 	    xhr.onreadystatechange  = function()
 	    { if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
- 	    	document.getElementById("pw2").innerHTML="PLEASE WAIT";
-	    	  document.getElementById("body1").style.cursor = "wait";
+ /* 	    	document.getElementById("pw2").innerHTML="PLEASE WAIT";
+	    	  document.getElementById("body1").style.cursor = "wait"; */
+	    	  
+	    	document.getElementById("load2").style.display="block"; 
 	    	}
 	         if(xhr.readyState  == 4)
 	         {
@@ -569,8 +616,10 @@ function table7()
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
 	               va=xhr.responseText.split("'");
 	               
-	               document.getElementById("body1").style.cursor = "default";
-	               document.getElementById("pw2").innerHTML="";
+	        /*        document.getElementById("body1").style.cursor = "default";
+	               document.getElementById("pw2").innerHTML=""; */
+	               
+	               document.getElementById("load2").style.display="none"; 
 	               
 	               var mm= document.getElementById("branch7").value;
 	               sessionStorage.setItem("table7","true'"+mm+"");
@@ -700,4 +749,60 @@ if(tab3!==null)
 	}
 
 </script>
+
+
+
+ <script>
+/* var ctr=false; */
+
+/* function myFunction(event) {
+  var x = event.keyCode;       
+  if(ctr==true && x!=190 && x!=188 )
+  {
+  ctr=false;
+  }
+  
+  if(x==17)
+  {
+  ctr=true;
+  }
+  if(ctr==true )
+  {
+  switch(x)
+  {
+  case 188:window.location.hash = tables[--i];
+  ctr=false;
+  break;
+  
+  case 190:window.location.hash = tables[++i];
+  ctr=false;
+  break;
+ 
+  }
+  
+  }
+ 
+} */
+/* var tb1=document.getElementById("tb1");
+var tb2=document.getElementById("tb2");
+var tb3=document.getElementById("tb3");
+var tables=[tb1,tb2,tb3];
+i=0;
+document.onkeyup = function(e) {
+	  if (e.ctrlKey && e.which == 190) {
+	  tables[++i].scrollIntoView();
+		  }
+	  else if(e.ctrlKey && e.which== 188)
+		  {
+		  tables[--i].scrollIntoView();
+		  }
+	 
+	    
+	  }; */
+
+
+</script> 
+
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>

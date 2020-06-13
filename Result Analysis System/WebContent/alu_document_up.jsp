@@ -110,12 +110,20 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
+       <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
           </a></li>
+           <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -186,27 +194,27 @@
  
 
  out.println("<div class='main_container'><div class='formback'>");
- out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Company Document</p><br><input type='file' name='myImage' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn'></form>");
+ out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Company Document</p><br><input type='file' name='myImage' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn' onclick='pW()'></form>");
  out.println("</div></div>");
  }
  else if(hide.equals("2"))//for enrterpernor
  { out.println("<div class='main_container'><div class='formback'>");
-	 out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Company Document</p><br><input type='file' name='myImage' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn'></form>");
+	 out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Company Document</p><br><input type='file' name='myImage' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn' onclick='pW()'></form>");
 	out.println("</div></div>");
  }
  else if(hide.equals("3"))// for student
  {      
 	    out.println("<div class='main_container'><div class='formback' >");
-		out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Step 1: Upload CAP Round Document</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn'></form>");
+		out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Step 1: Upload CAP Round Document</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn' onclick='pW()'></form>");
 		out.println("<br><br><br>");
-		out.println("<form action='doc_up1.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Step 2: Upload Id Card</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn'></form>");
+		out.println("<form action='doc_up1.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Step 2: Upload Id Card</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn' onclick='pW()'></form>");
 		out.println("</div></div>");
  }
  
  else if(hide.equals("11"))//for student for cap round only
  { 
 	 out.println("<div class='main_container'><div class='formback' '>");
-	out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload CAP Round Document</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' calss='btn'></form>");
+	out.println("<form action='doc_up.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload CAP Round Document</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' calss='btn' onclick='pW()'></form>");
 session.setAttribute("path1", path);
 out.println("</div></div>");
  }
@@ -214,7 +222,7 @@ out.println("</div></div>");
  {
 	 
 	 out.println("<div class='main_container'><div class='formback'>");
-	out.println("<form action='doc_up1.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Id Card</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn'></form>");
+	out.println("<form action='doc_up1.jsp' enctype='multipart/form-data' method='post' ><p id='up'>Upload Id Card</p><br><input type='file' name='id' id='up' class='btn'><br><br><input type='submit' name='upload' value='upload' class='btn' onclick='pW()'></form>");
 	session.setAttribute("path1", path);
 	out.println("</div></div>");
  }
@@ -227,6 +235,11 @@ out.println("</div></div>");
  } */
  }
  
+	out.println("<br><br><center><div class='loader' id='load' ><div class='loader1'><div class='loader2'></div></div></div></center>");
+	out.println("<br><p id='pw'></p>");
+	out.println("<script>function pleaseWait(){document.getElementById('pw').innerHTML='Please Wait While Flie Is Being Uploaded It Can Take Saveral Minutes Depends Upon The Size Of Data';document.getElementById('up').disabled = true;document.getElementById('load').style.display='block'}</script>");
+
+
  %>
 
 <!-- <div id="student" >
@@ -264,6 +277,35 @@ out.println("</div></div>");
 </form> 
 </div> -->
 </div></div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+      <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </body>
 <script src="theme.js">
 	
@@ -313,4 +355,6 @@ out.println("</div></div>");
 	
 
 </script>
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>

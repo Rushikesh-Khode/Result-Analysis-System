@@ -7,6 +7,7 @@
 <title>Result Analysis System</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/form.css">
+	<link rel="stylesheet" href="css/table.css">
 	<script src="css/nav.js"></script>
 	<script src="css/nav1.js"></script>
 	<script>
@@ -107,9 +108,21 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
+       <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
           </a></li>
+          
+             <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -130,7 +143,7 @@
         <div class="txt_field">
           <input type="text" required name="username">
           <span></span>
-          <label>Username</label>
+          <label>UserName(Email)</label>
         </div>
         <div class="txt_field">
           <input type="password" required name="password">
@@ -165,6 +178,35 @@
 
 </form>
 </div></div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+      <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </body>
 <%try{
 	String error=session.getAttribute("error").toString();
@@ -241,5 +283,6 @@ catch(IllegalStateException s)
 	
 	 
 </script>
+	<script src="shortcut.js" type="text/javascript"></script>
 
 </html>

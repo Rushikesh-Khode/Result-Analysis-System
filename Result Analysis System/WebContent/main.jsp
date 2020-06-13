@@ -13,10 +13,11 @@
 	<meta charset="UTF-8">
 	<title>Result Analysis System</title>
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/table.css">
 	<script src="css/nav.js"></script>
 	<script src="css/nav1.js"></script>
 	<script>
-	$(document).ready(function(){
+	 $(document).ready(function(){
 		$(".hamburger").click(function(){
 		   $(".wrapper").toggleClass("collapse");
 		   sts=sessionStorage.getItem("ham");
@@ -36,7 +37,14 @@
 		$(document).ready(function(){
 			   $(".wrapper").toggleClass("collapse");});
 					
-		}
+		} 
+	 
+		
+
+		
+	
+	
+	
 
 /*   var lo = localStorage.getItem("theme");
   if (lo == "" || lo == null || lo == "null") {
@@ -110,22 +118,33 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+          
+         <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+          
+          
+          <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!<br>( Use Shift+d as a short cut key) </span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
   <div class="main_container" >
     <div class="formback" id="formdark">
 
-    
+    	
 
 <center>
-	<form action="down.jsp" name="datee"> 
+	<form action="down.jsp" name="datee" method="post"> 
 		<%
 			Date d = new Date();
 		%>
@@ -138,12 +157,22 @@
 
 		<p class="para">
 			<h3>Download Template here  :   
+			<select name="type" class="list">
+			<option name="z" selected="selected">Zip File</option>
+			<option name="r">Rar File</option>
+			<option name="rm">ReadMe</option>
+			</select>
 			<button type="submit" class="btn">Download</button></h3> <br><br>
 		</p>
 		<h3 class="para">Upload Previous Exam Result :</h3> 
 		<br>
 		<jsp:include page="upload_result.jsp"/> 
 		</center>
+	
+
+
+
+
 	<%-- 	<%
 			try {
 				String msg = "";
@@ -174,6 +203,35 @@
 		<center><button formaction="javascript:document.location.href='table_1_2.jsp'" class="btn">See Table's</button></center>
 		</form>
 	</div> 	 
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+   <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </div>
 
 </body>
@@ -238,5 +296,22 @@
 	
 
 </script>
+	<script src="shortcut.js" type="text/javascript"></script>
+
 
 </html>
+
+<!--
+
+
+ ReadMe:
+
+To Make Dynamic Upload: 1)click on window->preferences->General(expand)->Workspace->check refresh using native hooks and pooling
+
+To Take Project As a path : 1)right click-> hover on run->click run configuration->Expand Apache Tomcat->click on tomacat 9.0->Argument->Working Directory->others->click on workspace -> select current porject click on ok
+
+
+
+
+ -->
+

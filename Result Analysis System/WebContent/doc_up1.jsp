@@ -113,12 +113,20 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+    <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+          <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -196,21 +204,51 @@
 
 				} catch (Exception e) {
 					
-					out.println(e);
-					out.println("<br><a href='alu_form.jsp'><button class='btn'>Try Again 1</button></a><br>");
+					out.println("Something Went Wrong Please Try Again Error Code: du101 ");
+					out.println("<br><a href='alu_form.jsp'><button class='btn'>Try Again </button></a><br>");
 				}
 
 			}
 
 		} catch (Exception e) {
-			out.println(e);
-			out.println("<br><a href='alu_form.jsp'><button class='btn'>Try Again 2</button></a><br>");
+			out.println("Something Went Wrong Please Try Again Error Code: du102  ");
+
+			out.println("<br><a href='alu_form.jsp'><button class='btn'>Try Again </button></a><br>");
 		}
 	%>
 
+<br><br>
 <a href="main.jsp">
 <button class="btn" >Go To Home</button></a>
 </center>
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+      <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </body>
 <script src="theme.js">
 	
@@ -260,4 +298,6 @@
 	
 
 </script>
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>

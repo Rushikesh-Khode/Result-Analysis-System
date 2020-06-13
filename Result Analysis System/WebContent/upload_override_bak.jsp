@@ -25,6 +25,7 @@
 <title>Result Analysis System</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/form.css">
+	<link rel="stylesheet" href="css/table.css">
 	<script src="css/nav.js"></script>
 	<script src="css/nav1.js"></script>
 	<script>
@@ -125,12 +126,21 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+        
+       <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li>  
+         <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   <center>
@@ -141,7 +151,34 @@
 	<%	String selected_year=session.getAttribute("exe").toString();
 		String msg = "";
 		String name = "";
-		String temppath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\tempupload",oripath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\uploads";
+		
+		 File f_of_workspace = new File("./");
+			String path_of_workspace=f_of_workspace.getAbsolutePath().substring(0,f_of_workspace.getAbsolutePath().length()-1);
+		
+		
+		
+		
+		
+		
+		String temppath=path_of_workspace+"\\tempupload",oripath=path_of_workspace+"\\uploads";
+		
+		
+		
+		
+		File tem_p=new File(temppath);
+		if(!tem_p.isDirectory())
+		{
+			tem_p.mkdir();
+		}
+	File tem_o = new File(oripath);
+		if(!tem_o.isDirectory())
+		{
+			tem_o.mkdir();
+		}
+		
+		
+		
+		
 		String filename = "";
 		String type = "";
 		String chk1="";
@@ -175,8 +212,8 @@
 					XSSFWorkbook twb = new XSSFWorkbook(tfin);
 					XSSFSheet tsh = twb.getSheetAt(0);
 					int trn = tsh.getLastRowNum();
-					
-					chk1=tsh.getRow(trn).getCell(12).getStringCellValue();
+					int row_num=Math.floorDiv(trn, 2);
+					chk1=tsh.getRow(row_num).getCell(12).getStringCellValue();
 					if(!chk1.equals(selected_year))
 					{tobedone=false;
 					
@@ -189,7 +226,7 @@
 					if(tobedone==true){
 					 PreparedStatement ps = con.prepareStatement("delete from stud_data where Exam_Name='"+chk1+"'");
 						ir = ps.executeUpdate();
-						out.println(ir);
+						
 					}
 					int ex=0;
 				   tfin.close();
@@ -229,7 +266,7 @@
 									rowcu += sp.executeUpdate();
 								} catch (Exception ee) {
 									ee.printStackTrace();
-									out.println(ee + "<br>");
+									
 									wb.close();
 									fin.close();
 									nf.delete();
@@ -246,7 +283,7 @@
 							orignal_f.delete();
 											nf.delete();
 											af.delete();
-							msg += "\t Uploading done  updated rows are " + rowcu;
+							msg += "\n Uploading done  updated rows are " + rowcu;
 
 						}
 
@@ -293,7 +330,7 @@
 		} else {
 			msg = "file name :" + filename + " " + msg;
 		}
-		out.println(msg);
+		out.println("<br>"+msg+"<br>");
 		session.setAttribute("alert", msg);
 		//request.removeAttribute("alert");
 		//request.setAttribute("alert", msg);
@@ -310,6 +347,34 @@
 <button class="btn" >Go To Home</button></a>
 </center>
 </div></div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+   <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
+</div>
 </body>
 <script src="theme.js">
 	
@@ -359,4 +424,6 @@
 	
 
 </script>
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>

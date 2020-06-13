@@ -86,12 +86,19 @@
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <li><a href="about.html">
+     <!--    <li><a href="about.html">
           <span class="title">About Us</span>
-          </a></li>
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+          </a></li> -->
+            <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -107,4 +114,6 @@
     </div>
 
 </body>
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>

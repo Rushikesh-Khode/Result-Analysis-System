@@ -10,19 +10,54 @@
 <%@page import="java.io.*"%>
 	<%
 try{
-	 response.setContentType("application/zip")  ; 
-	String filename="templet.zip";
-	 response.setHeader("Content-disposition" , "attachment;filename=templet.zip"); 
-/* 	 File df = new File("C:\\Users\\keshavkl\\eclipse-workspace\\cpp v2.2\\downloads\\"+filename);
- */
+	
+	String type=request.getParameter("type").toString();
+	
+	
+	
+
+	/* File df = new File("C:\\Users\\keshavkl\\eclipse-workspace\\cpp v2.2\\downloads\\"+filename); */
 
 
-FileInputStream f = new FileInputStream("D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\downloads\\templet.zip"); 
+
+ File f_of_workspace = new File("./");
+	String path_of_workspace=f_of_workspace.getAbsolutePath().substring(0,f_of_workspace.getAbsolutePath().length()-1);
+	 FileInputStream f=null;
+if(type.equals("Zip File")){
+	
+	  response.setContentType("application/zip")  ; 
+		String filename="templet.zip";
+		 response.setHeader("Content-disposition" , "attachment;filename=templet.zip"); 
+	
+ f= new FileInputStream(path_of_workspace+"\\WebContent\\downloads\\templet.zip"); 
+ 
+ }
+else if(type.equals("Rar File"))
+{
+	
+	  response.setContentType("application/rar")  ; 
+		String filename="templet.rar";
+		 response.setHeader("Content-disposition" , "attachment;filename=templet.rar"); 
+f=new FileInputStream(path_of_workspace+"\\WebContent\\downloads\\templet.rar"); 	
+}
+else
+{
+	  response.setContentType("application/txt")  ; 
+		String filename="README.txt";
+		 response.setHeader("Content-disposition" , "attachment;filename=README.txt"); 
+	
+f=new FileInputStream(path_of_workspace+"\\WebContent\\downloads\\README.txt"); 	
+
+}
+ 
 int i=0;
 while((i=f.read())!=-1)
 {out.write(i);}
+
+
 f.close();
-}
+
+} 
 catch(Exception e)
 {
 	out.println("not done");}

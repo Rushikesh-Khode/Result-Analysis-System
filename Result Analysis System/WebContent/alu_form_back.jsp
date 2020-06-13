@@ -28,10 +28,13 @@ try{
 	String status_c="",alert="";
 	int docs=0;
 	
+ File f_of_workspace = new File("./");
+	String path_of_workspace=f_of_workspace.getAbsolutePath().substring(0,f_of_workspace.getAbsolutePath().length()-1);
+	
 	PreparedStatement pr= con.prepareStatement("select * from stud_data where en_no=?");
 	pr.setInt(1, Integer.parseInt(enroll));
 	ResultSet rs = pr.executeQuery();
-	String dirpath="D:\\sem 5 project\\AJAVA pro\\cpp v2.3\\WebContent\\documents",path="";
+	String dirpath=path_of_workspace+"\\WebContent\\documents",path="";
 int go=0;
 	
 	

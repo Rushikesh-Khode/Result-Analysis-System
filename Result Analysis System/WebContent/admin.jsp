@@ -43,7 +43,7 @@
       document.getElementById("body1").style.background = "#404040";
       document.getElementById("dc").checked=true;
       
-    }
+    }D
 
     else {
       document.getElementById("body1").style.color = "black";
@@ -129,13 +129,37 @@ out.println("<li><a href='admin_logout.jsp'><span class='title'>LogOut</span></a
           </a></li>
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
-          </a></li>
-        <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+          </a></li>-->
+         <li>
+          <a>
+          <div class="tooltip">          
+          <span class="title">
+          Sync With <br>Database
+          <label class="switch">
+		<input type="checkbox" id ="DyRe" onclick="onDR()"><span class="slider round"></span>
+</label></span></div></a></li>
+          
+          
+          
+          
+        <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+          
+          
+          
+          
+        <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!<br>Use Keyboard Shortcut(shift+d)</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -146,10 +170,13 @@ out.println("<li><a href='admin_logout.jsp'><span class='title'>LogOut</span></a
 
 
 
-<div align="right">
-<input type="checkbox" id ="DyRe" onclick="onDR()">Dynamic Refreshing
-</div>
+<!-- <div align="right">
+ <label class="switch">
+		<input type="checkbox" id ="DyRe" onclick="onDR()"><span class="slider round"></span>
+</label>
 
+</div>
+ -->
 <%-- <%
 response.setHeader("Cache-Control","no-cache,no-store,must-revalidate"); //HTTP 1.1 
 response.setHeader("Pragma","no-cache"); //HTTP 1.0 
@@ -188,7 +215,7 @@ out.println("<br>");
 <option value="2">Enterprener</option>
 <option value="3" >Student</option>t
 </Select>
-</center>
+
 
 
 <br><br><br><br><br>
@@ -198,12 +225,41 @@ out.println("<br>");
 
 <br><br><br><br><br>
 
-
+</center>
 </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website (Admin)</th></tr>
+  
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr> 
+     <tr> <td>To Start Database Sync </td><td> Shift(Hold) + s</td></tr>
+        <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+     
+   <tr><th colspan="3"> For Tables (Admin)</th></tr> 
+    <tr> <td>To Generate Data For EMPLOYEE </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ENTERPRENER </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For STUDENT </td><td> Shift(Hold) + 3</td></tr>
+    <tr><th colspan="3">Action (Admin)</th></tr> 
+    <tr><th colspan="3">Note :- To Perform Action On Perticular Data(Row) Hover Mouse On The Row The Then Row Will Be Highlighted Then You Have To Press Keys</th></tr>
+     <tr> <td>To Delete Data(Row) </td><td> Shift(Hold) + r</td></tr>
+
+    </table>
+    </center>
+    </div>
+  </div>
+
 </div>
 
 </body>
 <script>
+var time_for_dr=10000;
 
 
 function adtable()
@@ -243,27 +299,41 @@ function adtable()
 
 function onDR()
 {
+	
+	var interval_var;
 	if(document.getElementById("DyRe").checked)
 		{
+			if(confirm("Start Dynamic Refreshing Only If You Have Good Internet Speed \n(Beacause It Will Update The Table Data After Every 10 Seconds)"))
+			{
+			
 		
-		localStorage.setItem("DR", "1");
+				localStorage.setItem("DR", "1");
 		
-var myvar=setInterval(checkForUpdate,1000);
+				interval_var=setInterval(adtable,time_for_dr);
 
-function checkForUpdate()
-{
-	adtable();
+				
+				
+					
 	
-	}
-url=window.location.href;
-param=url.split("?");
-s=param[1].split("=")[1];
-document.getElementById('statmenu').selectedIndex=s;
-}
-else
-		{
-		localStorage.setItem("DR", "0");
-		document.getElementById('statmenu').selectedIndex="0";
+				
+				
+				 
+				
+				
+			}
+			else
+			{
+				document.getElementById("DyRe").checked=false;
+				clearInterval(interval_var);
+				
+			}
+		}
+		else
+		{clearInterval(interval_var);
+			localStorage.setItem("DR", "0");
+	
+			document.getElementById('statmenu').selectedIndex="0";
+			location.reload();
 		}
 }
 
@@ -271,15 +341,15 @@ else
 
 <script type="text/javascript">
 var dr=localStorage.getItem("DR");
+var myvar_r;
 if(dr=="1")
 		{
 	
 	document.getElementById("DyRe").checked=true;
-	var myvar=setInterval(checkForUpdate,10000);
-	function checkForUpdate()
-	{
-		adtable();
-		}
+	 myvar_r=setInterval(adtable,time_for_dr);
+
+		
+		
 /* 	url=window.location.href;
 	param=url.split("?");
 	s=param[1].split("=")[1];
@@ -288,6 +358,7 @@ if(dr=="1")
 else
 	{
 	document.getElementById("DyRe").checked=false;
+	clearInterval(myvar_r);
 	/* document.getElementById('statmenu').selectedIndex="0"; */
 	}
 		
@@ -295,56 +366,26 @@ else
 </script>
 <script>
 	
-	/* var lo = localStorage.getItem("theme");
-	if (lo == "" || lo == null || lo == "null") {
-
-	} else {
-
-		if (lo == "dark") {
-			document.getElementById("body1").style.color = "white";
-			document.getElementById("body1").style.background = "#404040";
-			document.getElementById("formdark").style.background = "black";
-			document.getElementById("dc").checked=true;
-			
-
-		}
-
-		else {
-			document.getElementById("body1").style.color = "black";
-			document.getElementById("body1").style.background = "white";
-			document.getElementById("formdark").style.background = "#07407B";
-			
-
-		}
-	}
-	function dark() {
-
-		if (document.getElementById("dc").checked) {
-
-			document.getElementById("body1").style.color = "white";
-			document.getElementById("body1").style.background = "#404040";
-			document.getElementById("formdark").style.background = "black";
-			localStorage.setItem("theme", "dark");
-			
-		} else {
-			document.getElementById("body1").style.color = "black";
-			document.getElementById("body1").style.background = "white";
-			document.getElementById("formdark").style.background = "#07407B";
-			localStorage.setItem("theme", "light");
-			
-		}
-
-	
-	} */
 	function checkselected()
 	{   var lo = localStorage.getItem("selected");
 		document.getElementById('statmenu').selectedIndex=lo;
-		adtable()
+		adtable();
 	}
+	/*  var doalert=0;
+	url=window.location.href;
+	param=url.split("?");
+
+	doalert=param[1].split("=")[1];
+	if(doalert!=0)
+		{
+		alert("Alumni Deleted Sucessfully");
+		doalert=0;
+		} */
 	
 	
 
 </script>
 <script src="theme.js"></script>
+<script src="shortcut_admin.js"></script>
 </html>
 <!-- <input type="submit" onclick="adtable()" value="See Data"> -->

@@ -7,29 +7,32 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/table.css">
 	<script src="css/nav.js"></script>
-	<script src="css/nav1.js"></script>
 	<script>
+
+	
 	$(document).ready(function(){
 		$(".hamburger").click(function(){
-		   $(".wrapper").toggleClass("collapse");
-		   sts=sessionStorage.getItem("ham");
+			$(".wrapper").toggleClass("collapse");
+			sts=sessionStorage.getItem("ham");
 		   if(sts!==null){
 			 sts=parseInt(sts)+1;
 			sessionStorage.setItem("ham",sts);
+			 
 		    }
 		   else
 			   {
 				sessionStorage.setItem("ham",2);
 			   }
 		});
-	});
-
+	}); 
+	
 	if(parseInt(sessionStorage.getItem("ham"))%2==0)
-		{
-		$(document).ready(function(){
-			   $(".wrapper").toggleClass("collapse");});
-					
-		}
+	{
+	$(document).ready(function(){
+		   $(".wrapper").toggleClass("collapse");});
+				
+	}
+	
  /*  var lo = localStorage.getItem("theme");
   if (lo == "" || lo == null || lo == "null") {
 
@@ -64,6 +67,10 @@
     }
   
   } */
+  
+  
+  
+  
 </script>
 
 
@@ -72,7 +79,7 @@
 
 
 
-</head><body id="body1">
+</head><body id="body1" >
 <%Date d= new Date();
 int year=(d.getYear()-1)+1900;%>
 
@@ -104,12 +111,20 @@ int year=(d.getYear()-1)+1900;%>
         <li><a href="contact.html">
           <span class="title">Contact Us</span>
           </a></li>
-        <!-- <li><a href="about.html">
-          <span class="title">About Us</span>
-          </a></li> -->
-          <li><a href="#">
-          <span class="title"><input type="checkbox" onclick="dark()" id="dc">  DarkMode</span>
-          </a></li>
+      <li  id="myBtn" onclick="shortkey()"><a href="#">
+          <span class="title">Keyboard <br>Shortcut's</span>
+          
+          </a></li> 
+      <li>
+          <a>
+          <div class="tooltip">
+           <span class="tooltiptext">Dark theme turns the light <br> surfaces of the page dark <br>creating an experience <br>ideal for night. Try it out!</span>
+          
+          <span class="title">
+          DarkMode
+          <label class="switch">
+		<input type="checkbox" onclick="dark()" id="dc"><span class="slider round"></span>
+</label></span></div></a></li>
     </ul>
   </div>
   
@@ -123,11 +138,11 @@ int year=(d.getYear()-1)+1900;%>
 
 
 
-	<p><b>Number of students who have successfully
+	<p><b id="tb1">Number of students who have successfully
 					graduated without backlogs in any semester/year of study (Without
 					Backlog means no compartment or failures in any semester/year of
 					study)</b></p>
-	<br>
+	<br><p>N1+N2+N3=Total Number Of Student In The Year</p>
 		<!-- <input type="submit" value="Generate data for calculation of success ratio" onclick="table1()">  -->
 		
 			<select id="branch1" class="list">
@@ -137,15 +152,16 @@ int year=(d.getYear()-1)+1900;%>
 			<option value="EE">EE</option>
 			<option value="ET">ET</option>
 		</select>
-		<button onclick="table1()" class="btn">Generate Data </button><p id="pw"></p>
+		<button onclick="table1()" class="btn" id="but1">Generate Data </button><center><div class="loader" id="load" ><div class="loader1"><div class="loader2"></div></div></div></center><!-- <p id="pw"></p> -->
+		
 <br><br>
 		<!-- <p>This Data is Generated for branch :</p> -->
 		<br> <br>
-		<table border="1">
+		<table border="1" id="ta11" onmouseenter="setCurrent(ta11)" onmouseleave="removeCurrent(ta11)" >
 			<tr>
 				<th>Year of entry</th>
 
-				<th>N1 + N2 + N3 (As defined above)</th>
+				<th>N1 + N2 + N3 </th>
 
 				<th colspan="6">Number of students who have successfully
 					graduated without backlogs in any semester/year of study (Without
@@ -266,8 +282,8 @@ int year=(d.getYear()-1)+1900;%>
 			
 <!-- table 2 -->
 
-<p><b>Number of students who have successfully graduated(Students with backlog in stipulated period of study)</b></p>
-<br><br>
+<p><b id="tb2">Number of students who have successfully graduated(Students with backlog in stipulated period of study)</b></p>
+<br><p>N1+N2+N3=Total Number Of Student In The Year</p><br>
 <!-- <input type="submit" value="Generate values" onclick="table2()"> -->
 
 
@@ -278,18 +294,19 @@ int year=(d.getYear()-1)+1900;%>
   <option value="EE">EE</option>
   <option value="ET">ET</option>
 </select> 
-<button onclick="table2()" class="btn">Generate values</button><p id="pw1"></p>
+<button onclick="table2()" class="btn" id="but2">Generate values</button><!-- <p id="pw1"></p> -->
+<center><div class="loader" id="load1" ><div class="loader1"><div class="loader2"></div></div></div></center>
 <br><br>
 <!-- <p> This Data is Generated for branch : </p> -->
 <br>
-<table border="1">
+<table border="1"  id="ta22" onmouseenter="setCurrent(ta22)" onmouseleave="removeCurrent(ta22)">
 
 <tr>
 
 <th rowspan="3" >Year of entry</th>
 
 <th rowspan="3" >N1 + N2 + N3
-(As defined above)</th>
+</th>
 
 <th colspan="7" >Number of students who have successfully graduated
 (Students with backlog in stipulated period of study)</th>
@@ -404,7 +421,36 @@ int year=(d.getYear()-1)+1900;%>
 		<center>
 		<button class="btn" style="width:80px;" onclick="javascript:document.location.href='main.jsp'">BACK</button>
 		<button class="btn" style="width:80px;" onclick="javascript:document.location.href='table_3_4.jsp'">NEXT</button></center>
+		
 		</div> 	 
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content" id="keyback">
+    <span class="close">&times;</span>
+    <div id="keyfront" style="color:white">
+    <h2 align="center">Keyboard Shortcut's</h2><center>
+    <table >
+    <tr><th colspan="3"> For Website</th></tr>
+   <tr> <td>To Go Home  </td><td> Shift(Hold) + h</td></tr>
+   <tr> <td>To See Tables </td><td> Shift(Hold) + t</td></tr>
+   <tr> <td>To Change Theme </td><td> Shift(Hold) + d</td></tr>
+   <tr> <td>To See Keyboard Shortcut's </td><td> Shift(Hold) + k</td></tr>
+   <tr><th colspan="3"> For Tables</th></tr>
+   <tr><th colspan="3">Note:- To Activate This Shortcuts You Have To Hover Mouse On The Perticular Table</th></tr> 
+    <tr> <td>To Generate Data For CO </td><td> Shift(Hold) + 1</td></tr>
+    <tr> <td>To Generate Data For ME </td><td> Shift(Hold) + 2</td></tr>
+    <tr> <td>To Generate Data For CE </td><td> Shift(Hold) + 3</td></tr>
+    <tr> <td>To Generate Data For EE </td><td> Shift(Hold) + 4</td></tr>
+    <tr> <td>To Generate Data For ET </td><td> Shift(Hold) + 5</td></tr>
+    <tr> <td> Jump To Next Table(on same page) </td><td> Ctrl(Hold) + ></td></tr>
+    <tr> <td>Jump To Previous Table (on same page)</td><td> Ctrl(Hold) + < </td></tr>
+    </table>
+    </center>
+    </div>
+  </div>
+
 </div>
 
 </body>
@@ -418,7 +464,7 @@ int year=(d.getYear()-1)+1900;%>
 <script type="text/javascript">
 /* //for table 1 data genration */
 
-
+/* document.getElementById("load").style.display="none"; */
 
 
 function table1()
@@ -437,14 +483,15 @@ function table1()
 	   
 	    xhr.onreadystatechange  = function()
 	    {    if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
-	    	document.getElementById("pw").innerHTML="PLEASE WAIT";
-	    	 document.getElementById("body1").style.cursor = "wait";}
+	    /* 	document.getElementById("pw").innerHTML="PLEASE WAIT"; */
+	    	document.getElementById("load").style.display="block";
+	    	}
 	         if(xhr.readyState  == 4)
 	         {
 	              if(xhr.status  == 200) {
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
-	               document.getElementById("pw").innerHTML="";
-	               document.getElementById("body1").style.cursor = "default";
+	            document.getElementById("load").style.display="none"; 
+	          
 	               
 	               
 	               va=xhr.responseText.split("'");
@@ -541,21 +588,25 @@ function table2()
 	   
 	    xhr.onreadystatechange  = function()
 	    { if(xhr.readyState==3 || xhr.readyState==1|| xhr.readyState==2){
-	    	document.getElementById("pw1").innerHTML="PLEASE WAIT";
-	    	  document.getElementById("body1").style.cursor = "wait";
+	    	document.getElementById("load1").style.display="block";
+	
 	    	}
 	         if(xhr.readyState  == 4)
 	         {
 	              if(xhr.status  == 200) {
 	               /*   document.getElementById("tab").innerHTML=xhr.responseText; */
+	             document.getElementById("load1").style.display="none";
 	               va=xhr.responseText.split("'");
 	               
 	               var mm= document.getElementById("branch2").value;
 	               
 	               sessionStorage.setItem("table2", "true'"+mm+"");
 	               
-	               document.getElementById("body1").style.cursor = "default";
-	               document.getElementById("pw1").innerHTML="";
+	           
+	              /*  document.getElementById("pw1").innerHTML=""; */
+	               
+	               
+	               
 	               document.getElementById("tt1").innerHTML=va[0];
 	               document.getElementById("tt2").innerHTML=va[1];
 	               document.getElementById("tt3").innerHTML=va[2];
@@ -671,6 +722,7 @@ Theme script -->
 
 </script>
 
+
 <script>
 tab1=sessionStorage.getItem("table1");
 if(tab1!==null)
@@ -697,4 +749,82 @@ if(tab2!==null)
 
 
 </script>
+
+
+
+ <script>
+/* var ctr=false;
+function myFunction(event) {
+  var x = event.keyCode;       
+  if(ctr==true && x!=190 && x!=188 )
+  {
+  ctr=false;
+  }
+  
+  if(x==17)
+  {
+  ctr=true;
+  }
+  if(ctr==true )
+  {
+  switch(x)
+  {
+  case 190:window.location.hash = "tb2";
+  ctr=false;
+  break;
+  case 188:window.location.hash = "body1";
+  ctr=false;
+  break;
+  }
+ 
+  }
+ 
+} */
+
+
+/* document.onkeyup = function(e) {
+	  if (e.ctrlKey && e.which == 190) {
+		  document.getElementById("tb2").scrollIntoView();
+		  }
+	  else if(e.ctrlKey && e.which== 188)
+		  {
+		  document.getElementById("body1").scrollIntoView();
+			 
+		  }
+	  
+	  else if(e.altKey && e.which==78 )
+		  {
+
+		  window.location.href = "table_3_4.jsp";
+		  }
+	  if (e.shiftKey && e.which == 72) {
+		   alert("here");
+		   window.location.href = "main.jsp";
+	  } 
+	  
+	    
+	  }; */
+	 
+/* 	  var head = document.getElementsByTagName('HEAD')[0];  
+	  
+	  // Create new link Element 
+	  var link = document.createElement('link'); 
+
+
+	 // set the attributes for link element  
+	link.rel = 'stylesheet';  
+
+	link.type = 'text/css'; 
+function per(){
+	link.href = 'css/styles.css';  }
+
+	// Append link element to HTML head 
+	head.appendChild(link);  */
+
+
+</script> 
+
+
+	<script src="shortcut.js" type="text/javascript"></script>
+
 </html>
