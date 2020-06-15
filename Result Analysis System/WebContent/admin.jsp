@@ -287,7 +287,9 @@ function adtable()
                
                   }
               else{
-                 document.write("Error code " + xhr.status);}
+//                  document.write("Error code " + xhr.status);
+	      
+	      }
          }
     }; 
     m= document.getElementById("statmenu").value;
