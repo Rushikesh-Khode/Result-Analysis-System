@@ -557,7 +557,8 @@ function table1()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch1").value;
@@ -660,7 +661,9 @@ function table2()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch2").value;
