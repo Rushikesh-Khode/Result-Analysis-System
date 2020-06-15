@@ -124,7 +124,7 @@
 <br>
 <br>
 SI= (Number of students who have passed from the program without backlog)/ (Number of students admitted in the first year of that batch plus actually admitted in 2nd year via lateral entry) 
-<br>Average SI = Mean of success index (SI) for past three batches Success rate without backlogs in any year of study = 40 × Average SI 
+<br>Average SI = Mean of success index (SI) for past three batches Success rate without backlogs in any year of study = 40 Ã— Average SI 
 
 </p><br>
 <!-- <input type="submit" value="Generate values" onclick="table3()"> -->
@@ -244,7 +244,7 @@ SI= (Number of students who have passed from the program without backlog)/ (Numb
 
 SI= (Number of students who have passed from the program in the stipulated period of course duration)/ (Number of students admitted in the first year of that batch plus actually admitted in 2nd year via lateral entry) 
 <br>Average SI = mean of success index (SI) for past three batches <br>
-Success rate = 20 × Average SI 
+Success rate = 20 Ã— Average SI 
 </p>
 <br>
 <!-- <input type="submit" onclick="table4()"> -->
@@ -455,7 +455,10 @@ function table3()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      
+		      
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch3").value;
@@ -522,7 +525,9 @@ function table4()
                
                   }
               else{
-                 document.write("Error code " + xhr.status);}
+//                  document.write("Error code " + xhr.status);
+	      
+	      }
          }
     }; 
     m= document.getElementById("branch4").value;
