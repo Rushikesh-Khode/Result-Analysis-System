@@ -504,7 +504,9 @@ function table5()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch5").value;
@@ -575,7 +577,8 @@ function table6()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch6").value;
@@ -648,7 +651,9 @@ function table7()
 	               
 	                  }
 	              else{
-	                 document.write("Error code " + xhr.status);}
+// 	                 document.write("Error code " + xhr.status);
+		      
+		      }
 	         }
 	    }; 
 	    m= document.getElementById("branch7").value;
